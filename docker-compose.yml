@@ -1,0 +1,32 @@
+version: "3"
+services:
+
+  angular:
+      container_name: angular
+      image: oursgroumy/lcv-angular
+      restart: always
+      ports:
+        - "80:3000"
+      links:
+        - reservation
+
+  reservation:
+    container_name: reservation
+    image: oursgroumy/lcv-reservation
+    restart: always
+    ports:
+      - "3001:3001"
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    volumes:
+      - db-data:/data/db
+    ports:
+      - "27017:27017"
+
+volumes:
+    db-data:
+        driver: local
