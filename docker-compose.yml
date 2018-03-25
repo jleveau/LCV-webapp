@@ -7,17 +7,14 @@ services:
       restart: always
       ports:
         - "80:3000"
-      links:
-        - reservation
-
+    
   reservation:
     container_name: reservation
     image: oursgroumy/lcv-reservation
     restart: always
     ports:
       - "3001:3001"
-    links:
-      - mongo
+    
   mongo:
     container_name: mongo
     image: mongo
