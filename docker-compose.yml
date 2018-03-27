@@ -10,9 +10,9 @@ services:
       links:
         - reservation
 
-  reservation:
-    container_name: reservation
-    image: oursgroumy/lcv-reservation
+  events:
+    container_name: events
+    image: oursgroumy/lcv-events
     restart: always
     ports:
       - "3001:3001"
