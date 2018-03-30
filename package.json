@@ -1,0 +1,34 @@
+{
+  "name": "lcv-webapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "docker-compose up",
+    "cucumber": "./node_modules/.bin/cucumber-js",
+    "build": "cd .. && cd LCV-angular && npm run-script docker && cd .. && cd LCV-events && npm run-script docker && cd .. && cd LCV-webapp && docker pull oursgroumy/lcv-angular && docker pull oursgroumy/lcv-events && docker-compose up"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jleveau/LCV-webapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jleveau/LCV-webapp/issues"
+  },
+  "homepage": "https://github.com/jleveau/LCV-webapp#readme",
+  "dependencies": {
+    "cucumber": "^4.1.0",
+    "nightmare": "^3.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}
