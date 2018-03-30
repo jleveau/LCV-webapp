@@ -1,10 +1,13 @@
 const Nightmare = require("nightmare")
-const nightmare = Nightmare({ show: true })
+const nightmare = Nightmare({ show: false })
 const chai = require("chai")
 const expect = chai.expect
 const { Given, When, Then } = require("cucumber")
+var {After, Before} = require("cucumber")
 
 const pageUrl = "http://localhost:4200"
+
+After(() => )
 
 Given("i am on an event page", (done) => {
     nightmare.goto(pageUrl).then(() => done())
