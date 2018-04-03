@@ -2,12 +2,11 @@ const Nightmare = require("nightmare")
 const nightmare = Nightmare({ show: false })
 const chai = require("chai")
 const expect = chai.expect
-const { Given, When, Then } = require("cucumber")
-var {After, Before} = require("cucumber")
+const { Given, When, Then, AfterAll } = require("cucumber")
 
 const pageUrl = "http://localhost:4200"
 
-After(() => )
+AfterAll(() => nightmare.end())
 
 Given("i am on an event page", (done) => {
     nightmare.goto(pageUrl).then(() => done())
@@ -96,4 +95,20 @@ Then("my name is in the not participant list", (done) => {
             expect(names.find((name) => name === "my name")).to.not.be.eql(undefined)
             done()
         })
+
+    When("i click on the remove button next my name", function (done) {
+        nightmare.evaluate(() => {
+            const cells = document.querySelectorAll(".user_cell")
+            let myNameCell = null
+            for (const cell of cells) {
+                if (cell.querySelector("span").innerHTML === "my name") {
+                    myNameCell = cell
+                }
+            }
+            const me = document.createEvent("MouseEvents")
+            me.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
+            const actionCell = myNameCell.parentNode.querySelector(".action_cell")
+            actionCell.dispatchEvent(me)
+        }).then(() => done())
+    })
 })

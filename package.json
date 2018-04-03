@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "docker-compose up",
-    "cucumber": "./node_modules/.bin/cucumber-js",
+    "test": "./node_modules/.bin/cucumber-js",
     "build": "cd .. && cd LCV-angular && npm run-script docker && cd .. && cd LCV-events && npm run-script docker && cd .. && cd LCV-webapp && docker pull oursgroumy/lcv-angular && docker pull oursgroumy/lcv-events && docker-compose up"
   },
   "repository": {

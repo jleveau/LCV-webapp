@@ -12,3 +12,9 @@ Feature: Register
         And i click on je ne viens pas
         Then my name is no longer in the participants list
         And my name is in the not participant list
+
+    Scenario: Remove my name from the list of participants
+        Given i am on an event page
+        And my name is in the participant list
+        When i click on the remove button next my name
+        Then my name is no longer in the participants list
