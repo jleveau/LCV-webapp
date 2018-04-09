@@ -7,8 +7,10 @@ services:
       restart: always
       ports:
         - "80:3000"
-      links:
-        - events
+        - "443:443"
+      volumes:
+      - certbot-webroot-le-cerf-vert:/app/public/.well-known
+      - certbot-letsencrypt:/etc/letsencrypt
 
   events:
     container_name: events
@@ -26,6 +28,17 @@ services:
     ports:
       - "27017:27017"
 
+  certbot:
+    image: oursgroumy/lcv-ssl-certbot
+    container_name: certbot
+    restart: always
+    volumes:
+      -  certbot-webroot-le-cerf-vert:/webroots/le-cerf-vert.ovh/.well-known
+      - certbot-letsencrypt:/etc/letsencrypt
+
+
 volumes:
     db-data:
         driver: local
+    certbot-webroot-le-cerf-vert:
+    certbot-letsencrypt:
