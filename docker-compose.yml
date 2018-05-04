@@ -33,7 +33,7 @@ services:
     container_name: certbot
     restart: always
     volumes:
-      -  certbot-webroot-le-cerf-vert:/webroots/le-cerf-vert.ovh/.well-known
+      - certbot-webroot-le-cerf-vert:/webroots/le-cerf-vert.ovh/.well-known
       - certbot-letsencrypt:/etc/letsencrypt
 
 
