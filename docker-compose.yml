@@ -18,6 +18,13 @@ services:
     restart: always
     ports:
       - "3001:3001"
+
+  users:
+    container_name: users
+    image: oursgroumy/lcv-users
+    restart: always
+    ports:
+      - "3002:3002"
     
   mongo:
     container_name: mongo
@@ -35,7 +42,6 @@ services:
     volumes:
       - certbot-webroot-le-cerf-vert:/webroots/le-cerf-vert.ovh/.well-known
       - certbot-letsencrypt:/etc/letsencrypt
-
 
 volumes:
     db-data:
