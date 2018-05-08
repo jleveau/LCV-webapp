@@ -43,6 +43,13 @@ services:
       - certbot-webroot-le-cerf-vert:/webroots/le-cerf-vert.ovh/.well-known
       - certbot-letsencrypt:/etc/letsencrypt
 
+  discord:
+    container_name: discord
+    image: oursgroumy/lcv-discord
+    restart: always
+    ports:
+      - "3003:3003"
+
 volumes:
     db-data:
         driver: local

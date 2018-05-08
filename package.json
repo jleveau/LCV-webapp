@@ -6,8 +6,8 @@
   "scripts": {
     "start": "docker-compose up",
     "test": "./node_modules/.bin/cucumber-js",
-    "build": "cd ../LCV-angular && npm run-script docker && cd ../LCV-events && npm run-script docker && cd ../LCV-ssl-certbot && npm run-script docker && cd ../LCV-users && npm run-script docker",
-    "deploy": "docker stop $(docker ps -a -q) && docker pull oursgroumy/lcv-angular && docker pull oursgroumy/lcv-users && docker pull oursgroumy/lcv-events && docker pull oursgroumy/lcv-ssl-certbot && docker-compose up"
+    "build": "cd ../LCV-angular && npm run-script docker && cd ../LCV-discord && npm run-script docker && cd ../LCV-events && npm run-script docker && cd ../LCV-ssl-certbot && npm run-script docker && cd ../LCV-users && npm run-script docker",
+    "deploy": "docker stop $(docker ps -a -q) && docker pull oursgroumy/lcv-discord && docker pull oursgroumy/lcv-angular && docker pull oursgroumy/lcv-users && docker pull oursgroumy/lcv-events && docker pull oursgroumy/lcv-ssl-certbot && docker-compose up"
   },
   "repository": {
     "type": "git",
